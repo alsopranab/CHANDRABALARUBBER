@@ -1,0 +1,1 @@
+Add licensed optimized product photography here (rubber-sheets.webp, rubber-lots.webp, rubber-scrap.webp, warehouse.webp). Pages currently use remote Unsplash photos as temporary placeholders. Replace them with owned or licensed images before public launch. Never commit private member documents; use private Supabase Storage.
