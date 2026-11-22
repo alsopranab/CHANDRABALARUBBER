@@ -16,7 +16,7 @@ export async function createClient() {
       getAll() {
         return store.getAll();
       },
-      setAll(values: { name: string; value: string; options?: any }[]) {
+      setAll(values) {
         try {
           values.forEach(({ name, value, options }) =>
             store.set(name, value, options),
