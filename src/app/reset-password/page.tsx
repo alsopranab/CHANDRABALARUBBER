@@ -1,0 +1,4 @@
+"use client";
+import { useState } from "react";
+import { createClient } from "@/lib/supabase/client";
+export default function ResetPassword(){const [password,setPassword]=useState("");const [message,setMessage]=useState("");async function submit(e:React.FormEvent){e.preventDefault();const supabase=createClient();if(!supabase){setMessage("Connect Supabase first.");return}const {error}=await supabase.auth.updateUser({password});setMessage(error?error.message:"Password updated. You can now sign in.");}return <section className="section"><div className="form-shell"><span className="eyebrow">Account recovery</span><h1>Choose a new password.</h1><form onSubmit={submit}><div className="field"><label>New password</label><input type="password" minLength={10} required value={password} onChange={e=>setPassword(e.target.value)}/></div><button className="btn">Update password</button></form>{message&&<p className="notice">{message}</p>}</div></section>}
