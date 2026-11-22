@@ -1,0 +1,4 @@
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
+export async function getApprovedProfile(){const supabase=await createClient();if(!supabase)return {configured:false as const,profile:null};const {data:{user}}=await supabase.auth.getUser();if(!user)return {configured:true as const,profile:null};const {data:profile}=await supabase.from("profiles").select("id,full_name,company_name,role,status").eq("id",user.id).single();if(!profile||profile.status!=="approved")return {configured:true as const,profile:null};return {configured:true as const,profile};}
+export async function requireRole(roles:string[]){const result=await getApprovedProfile();if(!result.configured)redirect("/login?setup=required");if(!result.profile)redirect("/login");if(!roles.includes(result.profile.role))redirect("/portal");return result.profile;}
