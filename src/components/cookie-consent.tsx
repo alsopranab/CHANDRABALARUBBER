@@ -1,0 +1,4 @@
+"use client";
+import { useEffect,useState } from "react";
+export function CookieConsent(){const [visible,setVisible]=useState(false);useEffect(()=>{setVisible(!localStorage.getItem("cbri-cookie-choice"));},[]);function choose(value:string){localStorage.setItem("cbri-cookie-choice",value);setVisible(false);}if(!visible)return null;return <aside className="cookie-panel" aria-label="Cookie preferences"><div><strong>Privacy & cookie choices</strong><p>We use essential cookies and local storage to support site functionality. Optional analytics or marketing cookies will only be used if enabled and configured.</p><LinkPrivacy/></div><div className="cookie-actions"><button onClick={()=>choose("essential")}>Essential only</button><button onClick={()=>choose("accepted")}>Accept</button></div></aside>}
+function LinkPrivacy(){return <a className="inline-link" href="/privacy-policy">Read our privacy policy</a>}
