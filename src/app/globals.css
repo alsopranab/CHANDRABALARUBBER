@@ -142,3 +142,12 @@ html,body{overflow-x:hidden;width:100%}.container{width:calc(100% - 36px)!import
 .site-utility-rail{right:14px!important;left:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;flex-direction:column!important;gap:8px!important;padding:8px!important;border-radius:18px!important}
 .site-utility-rail button,.site-utility-link{width:44px!important;height:44px!important}
 }
+
+/* Footer social column layout fix */
+.footer-grid{grid-template-columns:1.35fr .8fr .95fr 1.1fr 1fr!important;align-items:start}
+.footer-social{margin-top:0!important;min-width:0}
+.footer-social h4{margin:0 0 8px}
+.footer-social a{width:100%;justify-content:flex-start!important;gap:10px!important}
+.footer-social a span:last-child{margin-left:auto}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important}.footer-grid>div:first-child{grid-column:1/-1}.footer-social{grid-column:1/-1!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px!important}.footer-social h4{grid-column:1/-1}.footer-social a{width:100%}}
+@media(max-width:680px){.footer-grid{grid-template-columns:1fr 1fr!important}.footer-social{grid-column:1/-1!important;grid-template-columns:1fr!important}}
