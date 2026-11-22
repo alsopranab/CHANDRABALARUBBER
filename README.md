@@ -5,7 +5,7 @@ Responsive corporate website and private B2B portal starter built with Next.js, 
 ## Local setup
 1. Install Node.js 20+.
 2. `npm install`
-3. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+3. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` (or legacy `NEXT_PUBLIC_SUPABASE_ANON_KEY`).
 4. Run `supabase/migrations/001_initial_schema.sql` in Supabase SQL Editor.
 5. Run `npm run dev`.
 
@@ -24,4 +24,4 @@ Admin roles must never be self-assigned through the public signup flow. Password
 The starter uses remote Unsplash imagery as temporary visuals. Replace with owned/licensed optimized WebP files in `public/images` or use Supabase Storage for private member uploads. Do not use public Google Drive links for private documents.
 
 ## Deployment
-Import the repo into Vercel, configure `.env.example` variables, deploy, set the portal domain, then update Supabase Auth Site URL and redirect allowlist. WhatsApp Cloud API and production document delivery require separate credentials and setup.
+Import the repo into Vercel, configure the environment variables, deploy, set the portal domain, then update Supabase Auth Site URL and redirect allowlist. WhatsApp Cloud API and production document delivery require separate credentials and setup.
