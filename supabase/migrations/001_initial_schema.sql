@@ -74,7 +74,11 @@ create index notifications_user_idx on public.notifications(user_id,created_at d
 create or replace function public.is_approved_admin() returns boolean language sql stable security definer set search_path=public
 as $$ select exists(select 1 from public.profiles where id=auth.uid() and role='admin' and status='approved') $$;
 create or replace function public.is_approved_member() returns boolean language sql stable security definer set search_path=public
-as $$ select exists(select 1 from public.profiles where id=auth.uid() and status='approved') $$;
+as $ select exists(select 1 from public.profiles where id=auth.uid() and status='approved') $;
+revoke all on function public.is_approved_admin() from public;
+revoke all on function public.is_approved_member() from public;
+grant execute on function public.is_approved_admin() to authenticated;
+grant execute on function public.is_approved_member() to authenticated;
 
 create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path=public
 as $$ begin
@@ -110,7 +114,7 @@ alter table public.audit_logs enable row level security;
 alter table public.notifications enable row level security;
 
 create policy "Profile own or admin select" on public.profiles for select to authenticated using(id=auth.uid() or public.is_approved_admin());
-create policy "Profile self update" on public.profiles for update to authenticated using(id=auth.uid() and status in('pending','approved')) with check(id=auth.uid() and role<>'admin' and status in('pending','approved'));
+-- No client-side role/status edits. Profile changes require trusted admin workflow.
 create policy "Admin profile update" on public.profiles for update to authenticated using(public.is_approved_admin()) with check(public.is_approved_admin());
 
 create policy "Seller insert own stock" on public.inventory for insert to authenticated with check(seller_id=auth.uid() and public.is_approved_member() and (select role from public.profiles where id=auth.uid())='seller' and status='submitted');
