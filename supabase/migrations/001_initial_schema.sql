@@ -74,7 +74,7 @@ create index notifications_user_idx on public.notifications(user_id,created_at d
 create or replace function public.is_approved_admin() returns boolean language sql stable security definer set search_path=public
 as $$ select exists(select 1 from public.profiles where id=auth.uid() and role='admin' and status='approved') $$;
 create or replace function public.is_approved_member() returns boolean language sql stable security definer set search_path=public
-as $ select exists(select 1 from public.profiles where id=auth.uid() and status='approved') $;
+as $$ select exists(select 1 from public.profiles where id=auth.uid() and status='approved') $$;
 revoke all on function public.is_approved_admin() from public;
 revoke all on function public.is_approved_member() from public;
 grant execute on function public.is_approved_admin() to authenticated;
