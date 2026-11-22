@@ -134,3 +134,11 @@ html,body{overflow-x:hidden;width:100%}.container{width:calc(100% - 36px)!import
 .site-utility-rail{right:12px!important;top:auto!important;bottom:18px!important;transform:none!important;flex-direction:row!important;padding:6px!important;gap:6px!important;border-radius:16px!important}.site-utility-rail button,.site-utility-link{width:42px!important;height:42px!important;border-radius:12px!important}.utility-tooltip{display:none!important}
 }
 @media(max-width:420px){.container{width:calc(100% - 28px)!important}.hero h1{font-size:43px!important}.stats{gap:7px!important}.stat strong{font-size:19px!important}.footer-grid{grid-template-columns:1fr!important}.footer-grid>div:first-child{grid-column:auto!important}}
+
+/* Fix homepage duplicate dock: keep only the site-wide dock */
+.home-quick-tools,.home-news-pop{display:none!important}
+.site-utility-rail{right:16px!important;left:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;margin:0!important}
+@media(max-width:680px){
+.site-utility-rail{right:14px!important;left:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;flex-direction:column!important;gap:8px!important;padding:8px!important;border-radius:18px!important}
+.site-utility-rail button,.site-utility-link{width:44px!important;height:44px!important}
+}
