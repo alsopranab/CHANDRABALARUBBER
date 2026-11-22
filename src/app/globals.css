@@ -181,3 +181,8 @@ html,body{overflow-x:hidden;width:100%}.container{width:calc(100% - 36px)!import
   .footer-social a{width:36px!important;height:36px!important}
   .footer-social a svg{width:16px!important;height:16px!important}
 }
+
+/* Restore custom glyphs for Medium and X while keeping social buttons icon-only */
+.footer-social a .social-letter{display:flex!important;align-items:center!important;justify-content:center!important;margin:0!important;font-size:19px!important;font-weight:700!important;line-height:1!important}
+.footer-social a .medium-symbol{font-family:Georgia,serif!important;font-weight:900!important;font-size:18px!important}
+.footer-social a .x-symbol{font-size:17px!important;font-weight:500!important}
