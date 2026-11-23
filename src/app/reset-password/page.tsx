@@ -8,7 +8,7 @@ export default function ResetPassword(){
   const [message,setMessage]=useState("");
   const [ready,setReady]=useState(false);
   const [valid,setValid]=useState(false);
-  const [busy,setBusy]=useState(false);
+  const [busy,setBusy]=useState(false);\n  const [success,setSuccess]=useState(false);
 
   useEffect(()=>{
     let mounted=true;
