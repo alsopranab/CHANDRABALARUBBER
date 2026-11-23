@@ -23,7 +23,7 @@ export default function ForgotPassword() {
   return (
     <section className="section"><div className="form-shell">
       <span className="eyebrow">Account recovery</span><h1>Forgot your password?</h1>
-      <p>Enter your registered email address. We'll send you a six-digit verification code.</p>
+      <p>Enter your registered email address. We&apos;ll send you a six-digit verification code.</p>
       <form onSubmit={submit}>
         <div className="field"><label htmlFor="recovery-email">Email address</label>
           <input id="recovery-email" type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)} /></div>
