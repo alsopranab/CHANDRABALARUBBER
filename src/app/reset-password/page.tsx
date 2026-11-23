@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
-export default function ResetPassword() {
+function ResetPasswordForm() {
   const params = useSearchParams();
   const [email, setEmail] = useState(params.get("email") || "");
   const [token, setToken] = useState("");
@@ -49,7 +49,7 @@ export default function ResetPassword() {
         <form onSubmit={verify}>
           <p>Enter the six-digit recovery code sent to your email address.</p>
           <div className="field"><label htmlFor="recovery-email">Email address</label><input id="recovery-email" type="email" required autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} /></div>
-          <div className="field"><label htmlFor="recovery-code">Six-digit verification code</label><input id="recovery-code" type="text" inputMode="numeric" pattern="[0-9]{6}" maxLength={6} required autoComplete="one-time-code" value={token} onChange={e=>setToken(e.target.value.replace(/\D/g,"").slice(0,6))} /></div>
+          <div className="field"><label htmlFor="recovery-code">Six-digit verification code</label><input id="recovery-code" type="text" inputMode="numeric" pattern="[0-9]{6}" maxLength={6} required autoComplete="one-time-code" value={token} onChange={e=>setToken(e.target.value.replace(/\\D/g,"").slice(0,6))} /></div>
           <button className="btn" disabled={busy}>{busy ? "Verifying…" : "Verify code"}</button>
           {message && <p role="status" className="notice">{message}</p>}
         </form>
@@ -57,4 +57,8 @@ export default function ResetPassword() {
       {!success && <Link className="inline-link" href="/forgot-password">Request another code</Link>}
     </div></section>
   );
+}
+
+export default function ResetPassword() {
+  return <Suspense fallback={<section className="section"><div className="form-shell"><p>Loading password recovery…</p></div></section>}><ResetPasswordForm /></Suspense>;
 }
