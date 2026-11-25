@@ -1,19 +1,19 @@
 # Inventory control prototype
 
-This release adds an inventory workspace at /inventory with sample lots, searchable/filterable lot table, physical/reserved/available KPIs, illustrative value, and a local demo lot-add form.
+The /inventory workspace includes searchable lot records, physical/reserved/available KPIs, illustrative valuation and an in-memory demo lot form.
 
-**Important:** UI data is in-memory demo data. No database writes or transactions are implemented. Do not use demo numbers for purchasing, dispatch, or valuation decisions.
+**Demo-only:** UI records are sample data and not database writes. Do not use them for purchasing, dispatch or valuation.
 
-## Core balance definitions
-- Physical stock: sum of posted inventory movements (not implemented in UI yet)
-- Reserved stock: active reservation quantities
-- Available stock: physical stock less active reservations
-- Stock corrections should be ledger adjustments/reversals, not edits to historic movements
+## Balance principles
+- Physical stock derives from posted inventory movements.
+- Reserved stock derives from active reservations.
+- Available stock = physical less reservations.
+- Corrections use adjustment/reversal movements; avoid rewriting history.
 
-## Next engineering steps
-1. Deploy SQL schema only after review and test.
-2. Supabase Auth, organization roles, RLS policies.
-3. Transaction-safe receipt and movement functions.
-4. Reservations with concurrency protection.
-5. Sorting transformation: parent lot, child lots, input/output and wastage yield.
-6. Traceability, costing, stock ageing and analytical reports.
+## Next
+1. Test and deploy schema to a non-production Supabase project.
+2. Supabase Auth, roles and RLS policies.
+3. Transaction-safe purchase receipt posting and ledger movements.
+4. Reservation logic with concurrency protection.
+5. Sorting transformation traceability, yield and loss reconciliation.
+6. Costing, stock ageing and reports.
