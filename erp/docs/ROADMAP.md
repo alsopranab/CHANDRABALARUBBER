@@ -1,44 +1,10 @@
-# ERP Build Roadmap
-
-## Phase 0 — Foundation
-- Isolated folder and application setup
-- Taxonomy and database design
-- Security and audit conventions
-
-## Phase 1 — Procurement & Weighment
-- Supplier directory
-- Purchase intake
-- Vehicle / weighment capture
-- Purchase costing and discrepancies
-
-## Phase 2 — Sorting & Inventory
-- Lot and batch traceability
-- Sorting/classification
-- Stock ledger
-- Warehouse locations
-- Physical/reserved/available/in-transit views
-
-## Phase 3 — Sales & Dispatch
-- Buyers
-- Quotations and orders
-- Stock allocation
-- Dispatch and delivery
-
-## Phase 4 — Finance
-- Payables and receivables
-- Payments
-- Settlement and reconciliation
-
-## Phase 5 — Analytics
-- Stock by assortment group/family/item/lot
-- Stock ageing and capital tied up
-- Procurement cost/kg
-- Yield and sorting loss
-- Sales and gross margin
-- Supplier performance
-- Operational constraints and throughput
-
-## Phase 6 — Automation & portals
-- Document/PDF generation
-- WhatsApp workflow integrations
-- Supplier and buyer portals
+# Roadmap
+1. Modular ERP foundation — committed.
+2. Inventory workspace prototype — demo lots, filters, balance calculations and illustrative valuation.
+3. Master-data CRUD — assortment groups, families, items, suppliers/buyers, warehouses.
+4. Procurement — receipts, weighment and ledger posting.
+5. Sorting & quality — lot transformation, grade outputs, yield/loss reconciliation.
+6. Sales — orders, reservations, dispatch and buyer history.
+7. Finance — payables, receivables and settlements.
+8. Analytics — ageing, margins, yield, scorecards, throughput and working capital.
+9. Admin — persistent module config, permissions and audit trail.
