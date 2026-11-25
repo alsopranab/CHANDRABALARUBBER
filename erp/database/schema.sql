@@ -70,3 +70,6 @@ if not found then raise exception 'Reservation not found'; end if;
 if r.status<>'reserved' then raise exception 'Reservation is not active'; end if;
 update erp_stock_reservations set status='released',released_at=now() where id=r.id; end $$;
 -- Configure RLS, revoke public execution and role-specific grants before production.
+
+-- Sorting output rows are staged before child lot creation; allow output_lot_id to be null until posting.
+alter table erp_sorting_outputs alter column output_lot_id drop not null;
