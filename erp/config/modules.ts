@@ -10,4 +10,5 @@ export const modules:ERPModule[]=[
 {id:"buyers",label:"Buyers",description:"Buyer profiles, terms and order history",enabled:true,group:"Commercial",icon:"♙"},
 {id:"finance",label:"Finance",description:"Payables, receivables and settlement",enabled:false,group:"Finance",icon:"₹"},
 {id:"analytics",label:"Analytics",description:"KPIs, profitability and operational reporting",enabled:true,group:"Insights",icon:"⌁"},
+{id:"masters",label:"Master Data",description:"Product taxonomy and reference records",enabled:true,group:"System",icon:"▤"},
 {id:"settings",label:"Settings",description:"Configuration and module controls",enabled:true,group:"System",icon:"⚙"}];
